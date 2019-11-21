@@ -25,6 +25,11 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\js\0" />
+    <Folder Include="wwwroot\ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="TypeScript\FormatDate.ts" />
   </ItemGroup>
 
 </Project>
