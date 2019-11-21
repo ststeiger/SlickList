@@ -62,7 +62,7 @@ namespace _COR.Workarounds
 
             csb.PacketSize = 4096;
             csb.Pooling = false;
-            csb.ApplicationName = "TestSlickListMVC";
+            csb.ApplicationName = "SlickList";
             csb.ConnectTimeout = 5;
             csb.Encrypt = false;
             csb.MultipleActiveResultSets = false;

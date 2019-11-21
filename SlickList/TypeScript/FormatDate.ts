@@ -1,17 +1,5 @@
 
 /*
-let months:string[] = [];
-let weekdays:string[] = [];
-
-let days:string[] = [];
-
-
-
-let formats:string[] = [''];
-*/
-
-
-/*
  * Date Format 1.2.3
  * (c) 2007-2009 Steven Levithan <stevenlevithan.com>
  * MIT license
@@ -25,8 +13,23 @@ let formats:string[] = [''];
  * The mask defaults to dateFormat.masks.default.
  */
 
-namespace  foo
+namespace Basic.Waiting
 {
+    export function Start()
+    {
+    }
+}
+
+
+namespace $.datepicker 
+{
+
+
+    // let months:string[] = [];
+    // let weekdays:string[] = [];
+    // let days:string[] = [];
+    
+
 
     // Internationalization strings
     let i18n = {
@@ -37,10 +40,32 @@ namespace  foo
         monthNames: [
             "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
             "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
-        ]
+        ],
+        ordinal_suffix_of: function(i) 
+        {
+            let j = i % 10,
+                k = i % 100;
+
+            if (j == 1 && k != 11)
+            {
+                return i + "st";
+            }
+
+            if (j == 2 && k != 12)
+            {
+                return i + "nd";
+            }
+
+            if (j == 3 && k != 13)
+            {
+                return i + "rd";
+            }
+
+            return i + "th";
+        }
     };
     
-    let x = 123;
+    let x = 1234;
     // http://blog.stevenlevithan.com/archives/date-time-format
     // http://stevenlevithan.com/assets/misc/date.format.js
     
@@ -78,28 +103,14 @@ namespace  foo
         timezone = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g,
         timezoneClip = /[^-+\dA-Z]/g;
     
+   
     
-    function ordinal_suffix_of(i) 
+    export function formatDate(format, date)
     {
-        let j = i % 10,
-            k = i % 100;
-        
-        if (j == 1 && k != 11) {
-            return i + "st";
-        }
-        
-        if (j == 2 && k != 12) {
-            return i + "nd";
-        }
-        
-        if (j == 3 && k != 13) {
-            return i + "rd";
-        }
-        
-        return i + "th";
+        return dateFormat(date, format, false);
     }
     
-    
+
 
     // Regexes and supporting functions are cached through closure
     function dateFormat(date, mask, utc) 
@@ -163,7 +174,7 @@ namespace  foo
                 TT:   H < 12 ? "AM" : "PM",
                 Z:    utc ? "UTC" : (String(date).match(timezone) || [""]).pop().replace(timezoneClip, ""),
                 o:    (o > 0 ? "-" : "+") + pad(Math.floor(Math.abs(o) / 60) * 100 + Math.abs(o) % 60, 4),
-                S:   ordinal_suffix_of(d) // ["th", "st", "nd", "rd"][d % 10 > 3 ? 0 : (d % 100 - d % 10 != 10) * d % 10]
+                S: i18n.ordinal_suffix_of(d) // ["th", "st", "nd", "rd"][d % 10 > 3 ? 0 : (d % 100 - d % 10 != 10) * d % 10]
             };
             
             return mask.replace(token, function ($0) 

@@ -41,45 +41,35 @@
     <script type="text/javascript" src="../w8/Script.ashx?Single=Portal.Waiting.js"></script>
 
 
-    <!--
-        <script type="text/javascript" src="../w8/Script.ashx?Single=jQuery/js/jquery-1.6.2.min.js"></script>
-        <script type="text/javascript" src="../w8/Script.ashx?Single=jQuery/js/jquery-ui-1.8.15.custom.min.js"></script>
-        <script type="text/javascript" src="../w8/Script.ashx?Single=jQuery/ui/i18n/jquery.ui.datepicker-de-CH.js"></script>
-    -->
-        
-        <script>
-            // return ($.datepicker.formatDate('dd.mm.yy', d) 
     
-    
-            console.log("$:", $);
-            console.log("$.datepicker:", $.datepicker);
-            
-            $.datepicker = {
-                formatDate: function(format,date)
-                {
-                    return "01.01.1900"
-                }
-            };
 
-            console.log("$.datepicker2:", $.datepicker);
+    <script>
+        // return ($.datepicker.formatDate('dd.mm.yy', d)
 
-            window.Basic={
-                Waiting:{
-                    Start:function(){}
-                }
-            };
-            
-            // {Name: 'Ok', Styles: {float: 'right'}, onclick: function(o){ 
-            //     Basic.Waiting.Start(); setTimeout(function () { _That.PDF.generatePDF(Job) }, _That.timeOut); _ && _.Dialogue.removeAll();}},
-            
-        </script>
-        <!--
-        <script language = 'javascript' type = 'text/javascript' src = '../../jQuery/js/jquery-1.6.2.min.js'></script>
-        <script language = 'javascript' type = 'text/javascript' src = '../../jQuery/js/jquery-ui-1.8.15.custom.min.js'></script>
-        <script language = 'javascript' type = 'text/javascript' src = '../../jQuery/ui/i18n/jquery.ui.datepicker-de-CH.js'></script>
-        -->
+        /*
+        $.datepicker = {
+            formatDate: function (format, date)
+            {
+                return "01.01.1900"
+            }
+        };
+
+        // {Name: 'Ok', Styles: {float: 'right'}, onclick: function(o){
+        //     Basic.Waiting.Start(); setTimeout(function () { _That.PDF.generatePDF(Job) }, _That.timeOut); _ && _.Dialogue.removeAll();}},
+
+        window.Basic = {
+            Waiting: {
+                Start: function () { }
+            }
+        };
+
+        */
+    </script>
     
     
+    <script type="text/javascript" src="ts/FormatDate.js"></script>
+    
+
     <script type="text/javascript" src="../w8/Script.ashx?Single=COR_Resources:COR.QueryString.js"></script>
     <script type="text/javascript" src="../w8/Script.ashx?Single=COR_Resources:COR.Element.js"></script>
     <script type="text/javascript" src="../w8/Script.ashx?Single=COR_Resources:COR.Dialogue.js"></script>
