@@ -1,0 +1,115 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Remove="0\COR.Calendar.css" />
+      <None Remove="0\COR.Calendar.js" />
+      <None Remove="0\COR.Combobox.css" />
+      <None Remove="0\COR.Combobox.js" />
+      <None Remove="0\COR.Databind.js" />
+      <None Remove="0\COR.Dialogue.css" />
+      <None Remove="0\COR.Dialogue.Filter.js" />
+      <None Remove="0\COR.Dialogue.js" />
+      <None Remove="0\COR.Element.js" />
+      <None Remove="0\COR.Error.js" />
+      <None Remove="0\COR.Host.js" />
+      <None Remove="0\COR.QueryString.js" />
+      <None Remove="0\COR.Resources.css" />
+      <None Remove="0\COR.Session.js" />
+      <None Remove="0\COR.Trace.js" />
+      <None Remove="0\Libs\Export.fabric.min.js" />
+      <None Remove="0\Libs\Export.FileSaver.js" />
+      <None Remove="0\Libs\Export.FileSaver.min.js" />
+      <None Remove="0\Libs\Export.jszip.min.js" />
+      <None Remove="0\Libs\Export.pdfmake.js" />
+      <None Remove="0\Libs\Export.pdfmake.min.js" />
+      <None Remove="0\Libs\Export.vfs_fonts.min.js" />
+      <None Remove="0\Libs\Export.xlsx.js" />
+      <None Remove="0\Libs\Export.xlsx.min.js" />
+      <None Remove="0\SlickGrid\jquery-ui.osrtable.min.js" />
+      <None Remove="0\SlickGrid\jquery.event.drag-2.0.min.js" />
+      <None Remove="0\SlickGrid\slick.autotooltips.js" />
+      <None Remove="0\SlickGrid\slick.checkboxselectcolumn.js" />
+      <None Remove="0\SlickGrid\slick.columnpicker.js" />
+      <None Remove="0\SlickGrid\slick.core.js" />
+      <None Remove="0\SlickGrid\slick.dataview.js" />
+      <None Remove="0\SlickGrid\slick.grid.cor.css" />
+      <None Remove="0\SlickGrid\slick.grid.css" />
+      <None Remove="0\SlickGrid\slick.grid.js" />
+      <None Remove="0\SlickGrid\slick.groupitemmetadataprovider.js" />
+      <None Remove="0\SlickGrid\slick.rowselectionmodel.js" />
+      <None Remove="0\Slicklist\COR.Slicklist.Editor.js" />
+      <None Remove="0\Slicklist\COR.Slicklist.Export.js" />
+      <None Remove="0\Slicklist\COR.Slicklist.Footer.js" />
+      <None Remove="0\Slicklist\COR.Slicklist.Formatter.js" />
+      <None Remove="0\Slicklist\COR.Slicklist.js" />
+      <None Remove="0\Slicklist\COR.Slicklist.Sorter.js" />
+      <None Remove="0\Slicklist\SL_getMetadata.sql" />
+      <None Remove="0\Slicklist\SL_Referencetable.sql" />
+      <None Remove="0\Slicklist\SL_setColumns.sql" />
+      <None Remove="0\Slicklist\SL_Slickcolumns.sql" />
+      <None Remove="0\Slicklist\SL_Slickoptions.sql" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="0\COR.Calendar.css" />
+      <EmbeddedResource Include="0\COR.Calendar.js" />
+      <EmbeddedResource Include="0\COR.Combobox.css" />
+      <EmbeddedResource Include="0\COR.Combobox.js" />
+      <EmbeddedResource Include="0\COR.Databind.js" />
+      <EmbeddedResource Include="0\COR.Dialogue.css" />
+      <EmbeddedResource Include="0\COR.Dialogue.Filter.js" />
+      <EmbeddedResource Include="0\COR.Dialogue.js" />
+      <EmbeddedResource Include="0\COR.Element.js" />
+      <EmbeddedResource Include="0\COR.Error.js" />
+      <EmbeddedResource Include="0\COR.Host.js" />
+      <EmbeddedResource Include="0\COR.QueryString.js" />
+      <EmbeddedResource Include="0\COR.Resources.css" />
+      <EmbeddedResource Include="0\COR.Session.js" />
+      <EmbeddedResource Include="0\COR.Trace.js" />
+      <EmbeddedResource Include="0\Libs\Export.fabric.min.js" />
+      <EmbeddedResource Include="0\Libs\Export.FileSaver.js" />
+      <EmbeddedResource Include="0\Libs\Export.FileSaver.min.js" />
+      <EmbeddedResource Include="0\Libs\Export.jszip.min.js" />
+      <EmbeddedResource Include="0\Libs\Export.pdfmake.js" />
+      <EmbeddedResource Include="0\Libs\Export.pdfmake.min.js" />
+      <EmbeddedResource Include="0\Libs\Export.vfs_fonts.min.js" />
+      <EmbeddedResource Include="0\Libs\Export.xlsx.js" />
+      <EmbeddedResource Include="0\Libs\Export.xlsx.min.js" />
+      <EmbeddedResource Include="0\SlickGrid\jquery-ui.osrtable.min.js" />
+      <EmbeddedResource Include="0\SlickGrid\jquery.event.drag-2.0.min.js" />
+      <EmbeddedResource Include="0\SlickGrid\slick.autotooltips.js" />
+      <EmbeddedResource Include="0\SlickGrid\slick.checkboxselectcolumn.js" />
+      <EmbeddedResource Include="0\SlickGrid\slick.columnpicker.js" />
+      <EmbeddedResource Include="0\SlickGrid\slick.core.js" />
+      <EmbeddedResource Include="0\SlickGrid\slick.dataview.js" />
+      <EmbeddedResource Include="0\SlickGrid\slick.grid.cor.css" />
+      <EmbeddedResource Include="0\SlickGrid\slick.grid.css" />
+      <EmbeddedResource Include="0\SlickGrid\slick.grid.js" />
+      <EmbeddedResource Include="0\SlickGrid\slick.groupitemmetadataprovider.js" />
+      <EmbeddedResource Include="0\SlickGrid\slick.rowselectionmodel.js" />
+      <EmbeddedResource Include="0\Slicklist\COR.Slicklist.Editor.js" />
+      <EmbeddedResource Include="0\Slicklist\COR.Slicklist.Export.js" />
+      <EmbeddedResource Include="0\Slicklist\COR.Slicklist.Footer.js" />
+      <EmbeddedResource Include="0\Slicklist\COR.Slicklist.Formatter.js" />
+      <EmbeddedResource Include="0\Slicklist\COR.Slicklist.js" />
+      <EmbeddedResource Include="0\Slicklist\COR.Slicklist.Sorter.js" />
+      <EmbeddedResource Include="0\Slicklist\SL_getMetadata.sql" />
+      <EmbeddedResource Include="0\Slicklist\SL_Referencetable.sql" />
+      <EmbeddedResource Include="0\Slicklist\SL_setColumns.sql" />
+      <EmbeddedResource Include="0\Slicklist\SL_Slickcolumns.sql" />
+      <EmbeddedResource Include="0\Slicklist\SL_Slickoptions.sql" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.1.1" />
+      <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.1.1" />
+      <PackageReference Include="Microsoft.Win32.Registry" Version="4.6.0" />
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+      <PackageReference Include="System.Data.SqlClient" Version="4.7.0" />
+    </ItemGroup>
+
+</Project>

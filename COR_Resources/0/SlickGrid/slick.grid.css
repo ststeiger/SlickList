@@ -1,0 +1,444 @@
+/*
+IMPORTANT:
+In order to preserve the uniform grid appearance, all cell styles need to have padding, margin and border sizes.
+No built-in (selected, editable, highlight, flashing, invalid, loading, :focus) or user-specified CSS
+classes should alter those!
+*/
+
+/*REM: Logik*/
+.grid-canvas{
+	outline: 0;
+	position: relative;
+	z-index: 1
+}
+
+.grid-has-selected-cells .slick-cell:not(.slick-cell-checkboxsel){
+	opacity: 0.5
+}
+
+.grid-has-selected-cells .slick-cell.slick-cell-selected{
+	opacity: 1
+}
+
+.slick-header,
+.slick-headerrow{
+	-webkit-user-select: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	/*overflow: hidden;*/
+	border-left: 0px;
+	width: 100%;
+	z-index: 2
+}
+
+slick-headerrow{
+	overflow: visible !important
+}
+
+.slick-header-columns,
+.slick-headerrow-columns{
+	cursor: default;
+	/*overflow: hidden;*/
+	position: relative;
+	white-space: nowrap;
+	width: 999999px
+}
+
+.slick-header-column{
+	border-right: 1px solid transparent;
+	border-left: 0px;
+	border-top: 0px;
+	border-bottom: 0px;
+	display: inline-block;
+	float: left;
+	height: 16px;
+	line-height: 16px;
+	margin: 0;
+	overflow: hidden;
+	padding: 4px;
+	position: relative;
+	text-overflow: ellipsis
+}
+
+.slick-header-column-sorted{
+  font-style: italic
+}
+
+.slick-headerrow-column{
+	box-sizing: border-box;
+	height: 100%;
+	padding: 4px
+}
+
+.slick-headerrow-column > input[type=text],
+.slick-headerrow-column > select{
+    box-sizing: border-box;
+    height: 100%;
+	position: relative;
+	text-indent: 2px;
+    width: 100%
+}
+
+.slick-headerrow-column > select[multiple] > option{
+	background-color: #fff;
+	line-height: 20px;
+	height: 20px;
+	padding: 0px
+}
+
+.slick-headerrow-column > select[multiple]{
+	overflow-y: hidden
+}
+
+.slick-headerrow-column > select[multiple]:focus{
+	height: auto;
+	overflow-y: auto;
+	z-index: 2
+}
+
+.slick-select-text{
+	background-color: #fff;
+	bottom: 2px;
+	color: #000;
+	left: 1px;
+	overflow: hidden;
+	pointer-events: none;
+	position: absolute;
+	right: 2px;
+	text-indent: 2px;
+	text-overflow: ellipsis;
+	top: 1px;
+	white-space: nowrap;
+	z-index: 1  
+}
+
+.slick-cell,
+.slick-headerrow-column {
+	border: 1px solid transparent;
+	border-right: 1px dotted transparent;
+	border-bottom-color: transparent;
+	cursor: default;
+	margin: 0;
+	/*overflow: hidden;*/
+	padding: 1px 2px 2px 1px;
+	position: absolute;
+	text-overflow: ellipsis;
+	vertical-align: middle;
+	white-space: nowrap;
+	z-index: 1
+}
+
+.slick-cell{
+	line-height: 20px;
+	text-indent: 5px;
+	overflow: hidden
+}
+
+.slick-cell.highlighted {
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	transition: all 0.5s
+}
+
+.slick-cell.editable {
+	border-style: solid;
+	overflow: visible;
+	z-index: 11
+}
+
+.slick-cell:focus{
+	outline: none
+}
+
+.slick-edit-indicator,
+.slick-required-indicator{
+	/*pencil_16.png*/
+	background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfgCQgPIRSPLX0fAAAA2UlEQVQoz23QsUrDQByA8S8l5MBJEHwKR58gVGwkq5sIukh3oQ/goFNH6d6l1EB1cSl9BDdX30EXEZfPISlemtwtd/y+u+GP9OzgzHcnIgO6K7DgmSMS7ukJAisKAB74YtL9vLJ0448jEV+6PBT3mmTkY8yZlSfNuU5WhjafRnnpq0FiLiLOrQyyDTIrz1r8VHMdZFaWLV5uuQ7unO1w9n8fAMd8M27GlHPDBb/R4DxwLk4di7mL+LVI4jkF18CUlEMuW6+BlCFXQMo+b9zuMiSu+WDNhk961x9ars1P3TBE9QAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNi0wOS0wOFQxNTozMzoyMCswMjowML8BR0wAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTYtMDktMDhUMTU6MzM6MjArMDI6MDDOXP/wAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==');
+	display: inline-block;
+	height: 16px;
+	position: absolute;
+	right: 3px;
+	width: 16px
+}
+
+.slick-required-indicator{
+	background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3WAAAN1gGQb3mcAAAAB3RJTUUH4AkIDyEUjy19HwAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xNzNun2MAAAELSURBVDhPnZMxSwJxHIafycBJaG7JbxBIQ1Ho5NAWLW6VS9BeuBhI+A0ilyBL1yiCiFoagpZ0CfosTvW+dX+08zjPXnjw7vw/L7/7wTFHFsS5+BBHfjBPLN+I6s8dHIv27+WMHEBxBd7zMNJtKHBckj6J5TIMd6G/Bp8JJbfR73SCXIduE04acBorMWc+O5VDWJ6UA7ES78S7+Zsg78PVpBzw63gnOpoqXyfJmujS//v1ImWcIO9BL0UeJMpKrgRvHu8/stNah+c02RNGZxPzsClqcB+XK1rYLHlReONLW/ASSrLKzo648IVLPMkGPK7CaxbZ6Ygv4ZKuuBPqIicy5Un4M90WBT/IHvgGhwZpwfDc7vgAAAAASUVORK5CYII=')
+}
+
+.slick-resizable-handle {
+	cursor: col-resize;
+	display: block;
+	font-size: 0.1px;
+	height: 100%;
+	right: 0;
+	position: absolute;
+	top: 0;
+	width: 4px
+}
+
+.slick-sort-indicator{
+	display: inline-block;
+	height: 5px;
+	margin-left: 4px;
+	width: 8px
+}
+
+.slick-sort-indicator-desc{
+	/*sort-desc.gif*/
+	background: url('data:image/gif;base64,R0lGODlhDQAFAIcAAGGQzUD/QOPu+wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAMAAAEALAAAAAANAAUAAAgeAAUAGEgQgIAACBEKLHgwYcKFBh1KFNhQosOKEgMCADs=')
+}
+
+.slick-sort-indicator-asc{
+	/*sort-asc.gif*/
+	background: url('data:image/gif;base64,R0lGODlhDQAFAIcAAGGQzUD/QOPu+wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAMAAAEALAAAAAANAAUAAAgbAAMIDABgoEGDABIeRJhQ4cKGEA8KmEiRosGAADs=')
+}
+
+.slick-row{
+	border: 0;
+	position: absolute;
+	width: 100%
+}
+
+/**/
+.slick-group-toggle{
+	display: inline-block;
+	height: 9px;
+	margin-right: 5px;
+	width: 9px
+}
+
+.slick-group-toggle.expanded {
+  background: url('data:image/gif;base64,R0lGODlhCQAJAPcAAAFGeoCAgNXz/+v5/+v6/+z5/+36//L7//X8//j9/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAACQAJAAAIMwADCBxIUIDBgwIEChgwwECBAgQUFjBAkaJCABgxGlB4AGHCAAIQiBypEEECkScJqgwQEAA7') no-repeat center center;
+}
+
+.slick-group-toggle.collapsed {
+  background: url('data:image/gif;base64,R0lGODlhCQAJAPcAAAFGeoCAgNXz/+v5/+v6/+z5/+36//L7//X8//j9/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAACQAJAAAIOAADCBxIUIDBgwIEChgwAECBAgQUFjAAQIABAwoBaNSIMYCAAwIqGlSIAEHFkiQTIBCgkqDLAAEBADs=') no-repeat center center;
+}
+
+.slick-group-totals {
+  color: gray;
+  background: white;
+}
+/**/
+
+.slick-reorder-proxy{
+	background: blue;
+	cursor: move;
+	display: inline-block;
+	filter: alpha(opacity = 15);
+	opacity: 0.15
+}
+
+.slick-reorder-guide{
+	background: blue;
+	display: inline-block;
+	filter: alpha(opacity = 70);
+	height: 2px;
+	opacity: 0.7
+}
+
+.slick-selection{
+	position: absolute;
+	z-index: 10
+}
+
+.slick-footer-viewport{
+    position: relative;
+    z-index: 90
+}
+
+.slick-footer-columns{
+    position: relative
+}
+
+.slick-top-panel-row{
+	line-height: 25px;
+	text-align: center
+}
+
+.slick-formatter-icon {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    border: none;
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    margin: auto auto;
+    min-height: 16px;
+    min-width: 16px;
+    width: 100%;
+    /* Wie lang wirds go bis de Chef was seit? :D */
+	/* Wend's -Webkit- use nimsch, gseht ers gar nie :p */
+    -webkit-filter: drop-shadow(1px 1px 1px #000);
+    filter: drop-shadow(1px 1px 1px #000);
+}
+
+.slick-formatter-colorise{
+    display: inline-block;
+    left: -5px;/*REM: text-indent: 5px*/
+	height: 100%;
+	position: relative;
+    width: 100%
+}
+
+/*REM: Farben*/
+.slick-header-column{
+	background: #3d3d3d;
+	border-right: 1px solid #000;
+	color: orange
+}
+
+.slick-headerrow-column{
+	background-color: #4d4d4d;
+	border-right: 1px dotted #000;
+	border-bottom-color: #000
+}
+
+.slick-sortable-placeholder{
+	background: silver;
+}
+
+.odd.slick-row{
+	background-color: #767676
+}
+
+/*.slick-cell{
+	background-color: #767676
+}
+
+.odd .slick-cell{
+	background-color: #666
+}*/
+
+.slick-cell{
+	border-right: 1px dotted #000;
+	border-bottom-color: #000
+}
+
+.slick-cell.highlighted{
+	background: lightskyblue;
+	background: rgba(0, 0, 255, 0.2)
+}
+
+.slick-cell.flashing{
+	border: 1px solid red !important
+}
+
+.slick-cell.editable{
+	background: white;
+	border-color: #000
+}
+
+.slick-selection{
+	border: 2px dashed black
+}
+
+.slick-footer{
+    background: #3d3d3d
+}
+
+.slick-cell.required,
+.slick-row.required{
+    box-shadow: 0px 0px 10px 1px crimson inset;
+    -moz-box-shadow: 0px 0px 10px 1px crimson inset;
+    -webkit-box-shadow: 0px 0px 10px 1px crimson inset
+}
+
+.slick-cell.slick-cell-selected{
+    box-shadow: 0px 0px 10px 1px #E7F5FE inset;
+    -moz-box-shadow: 0px 0px 10px 1px #E7F5FE inset;
+    -webkit-box-shadow: 0px 0px 10px 1px #E7F5FE inset
+}
+
+/*.slick-cell.slick-cell-modified{
+    box-shadow: 0px 0px 10px 1px #FFA500 inset;
+    -moz-box-shadow: 0px 0px 10px 1px #FFA500 inset;
+    -webkit-box-shadow: 0px 0px 10px 1px #FFA500 inset
+}
+
+.slick-cell.slick-cell-deleted{
+    box-shadow: 0px 0px 10px 1px #ff2500 inset;
+    -moz-box-shadow: 0px 0px 10px 1px #ff2500 inset;
+    -webkit-box-shadow: 0px 0px 10px 1px #ff2500 inset
+}*/
+
+/*REM: ColumnPicker*/
+.slick-columnpicker{
+	-moz-box-shadow: 2px 2px 2px silver;
+	-webkit-box-shadow: 2px 2px 2px silver;
+	background: #f0f0f0;
+	border: 1px solid #718BB7;
+	box-shadow: 2px 2px 2px silver;
+	color: #000;
+	cursor: default;
+	min-width: 100px;
+	opacity: 0.9;
+	overflow-y: auto;
+	padding: 6px  
+}
+
+.slick-columnpicker label{
+	vertical-align: middle
+}
+
+.slick-columnpicker li{
+	background: none;
+	line-height: 25px;
+	list-style: none;
+	margin: 0;
+	padding: 0
+}
+
+.slick-columnpicker input{
+	margin: 4px;
+	vertical-align: middle
+}
+
+.slick-columnpicker li a{
+	display: block;
+	font-weight: bold;
+	padding: 4px
+}
+
+.slick-columnpicker li a:hover{
+	background: white
+}
+
+.slick-columnpicker-close{
+	color: crimson;
+	line-height: 25px;
+	position: absolute;
+	right: 5px;
+	top: 2px;
+	z-index: 1
+}
+
+.slick-cell-fullcontent{
+	height: 100%;
+	width: 100%
+}
+
+/*REM: Events*/
+.slick-event-box{
+    position: absolute;
+    right: 0;
+    top: 0;
+	z-index: 5
+}
+
+.slick-event{
+/*display: none; /*Wird momentan nicht daran entwickelt*/
+    background-color: #2d2d2d;
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfhAQsQNjvfnBcXAAAAkElEQVQoz72QsQ2DMBBFPyShSQr6SOzDDIzAQlEaKNIxAF3WYIJMQGmLR2FH4oijdHmFC/9n+d9JGyiYmCj0DUoAyu1drh/8T+BMZepWXGz/EU/znoIGz9MKN8DTAtDigd4KBx7AAvEcOO6XFJTAZ2yUdByVO52NM0niqlPCd9krvKtjuT0LdVjULJf80WmWVkz1gMbREKrPAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE3LTAxLTExVDE2OjU0OjU5KzAxOjAwwR6lRAAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNy0wMS0xMVQxNjo1NDo1OSswMTowMLBDHfgAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC');
+	background-position: 2px 50%;
+	background-repeat: no-repeat;
+	background-size: 10px;
+	border: 1px dotted #777;
+    cursor: pointer;
+	line-height: 20px;
+	margin-left: 2px;
+    padding: 2px 3px 2px 13px
+}
+
+.slick-event:hover{
+	background-color: orange
+}

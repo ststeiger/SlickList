@@ -1,0 +1,50 @@
+﻿.slick-cell .Icon{
+	height: 100%;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+    width: 100%
+}
+
+.slick-cell.Top .Icon,
+.slick-cell.Top .slick-formatter-icon{
+	background-position: 50% 0
+}
+
+.slick-header .aC, 
+.slick-header-column .aC,
+.slick-viewport .aC{
+    text-align: center;
+    text-indent: 0px;
+}
+
+.slick-header .aR,
+.slick-header-column .aR,
+.slick-viewport .aR{
+    text-align: right;
+}
+
+.slick-viewport .aR{
+    padding-right: 5px;
+}
+
+.slick-cell.aR input{
+    text-align: right;
+}
+
+.slick-cell.pre{
+	line-height: 15px;
+	padding-left: 5px;
+	text-indent: 0;
+    white-space: pre
+}
+
+.slick-cell .Preview{
+	cursor: pointer;
+	display: block;
+	margin: auto auto;
+	max-height: 60px;
+	max-width: 100px}
+
+.slick-cell div.tGreen{color: #45d335}
+.slick-cell div.tOrange{color: #FFA500}
+.slick-cell div.tRed{color: #ff5133}
