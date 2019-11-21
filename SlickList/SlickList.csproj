@@ -24,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="SQL\" />
     <Folder Include="wwwroot\js\0" />
   </ItemGroup>
 
