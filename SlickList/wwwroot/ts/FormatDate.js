@@ -20,7 +20,7 @@ var $;
 (function ($) {
     var datepicker;
     (function (datepicker) {
-        var localesz = {
+        datepicker.localesz = {
             "de": {
                 dayNames: [
                     "So", "Mo", "Di", "Mi", "Do", "Fr", "Sa",
@@ -105,7 +105,7 @@ var $;
 (function ($) {
     var datepicker;
     (function (datepicker) {
-        var version = 123444577;
+        var version = 1234;
         var getLocale = (function () {
             var static_locales = {};
             function getMonthName(locale, month, short) {

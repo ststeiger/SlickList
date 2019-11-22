@@ -50,7 +50,7 @@ namespace Basic.Waiting
 
 namespace $.datepicker
 {
-    let localesz = {
+    export let localesz = {
         "de": {
             dayNames: [
                 "So", "Mo", "Di", "Mi", "Do", "Fr", "Sa",
@@ -153,7 +153,7 @@ namespace $.datepicker
 namespace $.datepicker
 {
 
-    let version = 123444577; // to check if typescript transpiled the current version 
+    let version = 1234; // to check if typescript transpiled the current version 
     // http://blog.stevenlevithan.com/archives/date-time-format
     // http://stevenlevithan.com/assets/misc/date.format.js
     
