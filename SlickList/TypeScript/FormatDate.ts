@@ -43,27 +43,7 @@ namespace Basic.Waiting
     export function StartAndStop()
     {
         Portal.Waiting.StartAndStop();
-
-
-
-        // var a = new Date(Date.UTC(2019, 11,21, 0,0,0,0));
-        // var a = new Date(Date.UTC(2019, 11,21, 23,30,0,0));
-        var a = new Date(2019, 11,15, 0,0,0,0);
-        
-        
-        
-        // Sunday is 0, Monday is 1, and so on.
-        // var a = new Date(Date.UTC(2019, 11,15, 0,0,0,0)); 0 ==> // a.getUTCDay()
-        // var a = new Date(Date.UTC(2019, 11,15, 0,0,0,0)); 0 ==> // a.getUTCDay()
-
-        // var a = new Date(Date.UTC(2019, 0,1, 0,0,0,0)); a.getUTCMonth()
-
-// new Date().getTimezoneOffset()
-        
-        let options = { weekday: 'short', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short' };
-        let value = a.toLocaleDateString("de-CH", options);
     }
-    
     
 }
 
@@ -71,13 +51,19 @@ namespace Basic.Waiting
 namespace $.datepicker
 {
 
-    let x = 123444577;
+    let version = 123444577; // to check if typescript transpiled the current version 
     // http://blog.stevenlevithan.com/archives/date-time-format
     // http://stevenlevithan.com/assets/misc/date.format.js
     
     // let months:string[] = [];
     // let weekdays:string[] = [];
     // let days:string[] = [];
+
+    // var a = new Date(2019, 11,15, 0,0,0,0);
+    // var a = new Date(Date.UTC(2019, 11,15, 23,30,0,0)); 0 ==> // a.getUTCDay(), a.getUTCMonth()
+    // new Date().getTimezoneOffset()
+    // let options = { weekday: 'short', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short' };
+    // let value = a.toLocaleDateString("de-CH", options);
 
 
     // Internationalization strings

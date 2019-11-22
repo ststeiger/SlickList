@@ -12,9 +12,6 @@ var Basic;
         Waiting.Stop = Stop;
         function StartAndStop() {
             Portal.Waiting.StartAndStop();
-            var a = new Date(2019, 11, 15, 0, 0, 0, 0);
-            var options = { weekday: 'short', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short' };
-            var value = a.toLocaleDateString("de-CH", options);
         }
         Waiting.StartAndStop = StartAndStop;
     })(Waiting = Basic.Waiting || (Basic.Waiting = {}));
@@ -23,7 +20,7 @@ var $;
 (function ($) {
     var datepicker;
     (function (datepicker) {
-        var x = 123444577;
+        var version = 123444577;
         var getLocale = (function () {
             var static_locales = {};
             function getMonthName(locale, month, short) {
