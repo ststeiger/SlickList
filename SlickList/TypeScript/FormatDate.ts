@@ -50,6 +50,108 @@ namespace Basic.Waiting
 
 namespace $.datepicker
 {
+    let localesz = {
+        "de": {
+            dayNames: [
+                "So", "Mo", "Di", "Mi", "Do", "Fr", "Sa",
+                "Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"
+            ],
+            monthNames: [
+                "Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez",
+                "Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"
+            ],
+            ordinal_suffix_of: function (i: number, with_num: boolean) 
+            {
+                return with_num ? (i + ".") : ".";
+            }
+        },
+        "en": {
+            dayNames: [
+                "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat",
+                "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+            ],
+            monthNames: [
+                "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+                "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+            ],
+            ordinal_suffix_of: function (i:number, with_num:boolean) 
+            {
+                let j = i % 10,
+                    k = i % 100;
+
+                with_num = with_num || false;
+
+                if (j == 1 && k != 11)
+                {
+                    return with_num ? (i + "st") : "st";
+                }
+
+                if (j == 2 && k != 12)
+                {
+                    return with_num ? (i + "nd") : "nd";
+                }
+
+                if (j == 3 && k != 13)
+                {
+                    return with_num ? (i + "rd") : "rd";
+                }
+
+                return with_num ? (i + "th") : "th";
+            }
+
+        },
+        "fr": {
+            dayNames: [
+                "Dim.", "Lun.", "Mar.", "Mer.", "Jeu.", "Ven.", "Sam.",
+                "Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"
+            ],
+            monthNames: [
+                "Janv.", "Févr.", "Mars", "Avr.", "Mai", "Juin", "Juil.", "Août", "Sept.", "Oct.", "Nov.", "Déc.",
+                "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
+            ],
+            ordinal_suffix_of: function (i: number, with_num: boolean) 
+            {
+                if (i == 1)
+                    return with_num ? (i + "er") : "er";
+
+                return with_num ? (i + "e") : "e";
+            }
+        },
+        "it": {
+            dayNames: [
+                "Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab", 
+                "Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"
+            ],
+            monthNames: [
+                "Gen", "Feb", "Mar", "Apr", "Mag", "Giu", "Lug", "Ago", "Set", "Ott", "Nov", "Dic",
+                "Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"
+            ],
+            ordinal_suffix_of: function (i: number, with_num: boolean) 
+            {
+                return with_num ? (i + ".") : ".";
+            }
+        },
+        "ru": { // Rumantsch Grischun 
+            dayNames: [
+                "Dum", "Gli", "Mar", "Mes", "Gie", "Ven", "Son", 
+                "Dumengia", "Glindesdi", "Mardi", "Mesemna", "Gievgia", "Venderdi", "Sonda"
+            ],
+            monthNames: [
+                "Sch", "Fav", "Mar", "Avr", "Mat", "Zer", "Fan", "Avu", "Set", "Oct", "Nov", "Dec",
+                "Schaner", "Favrer", "Mars", "Avrigl", "Matg", "Zercladur", "Fanadur", "Avust", "Settember", "October", "November", "December"
+            ],
+            ordinal_suffix_of: function (i: number, with_num: boolean) 
+            {
+                return with_num ? (i + ".") : ".";
+            }
+        }
+    };
+}
+
+
+
+namespace $.datepicker
+{
 
     let version = 123444577; // to check if typescript transpiled the current version 
     // http://blog.stevenlevithan.com/archives/date-time-format
