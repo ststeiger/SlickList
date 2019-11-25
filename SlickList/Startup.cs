@@ -122,6 +122,7 @@ namespace SlickList
 
             app.UseLayoutMiddleware();
             app.UseSlickListMiddleware();
+            app.UseAshxMiddleware();
         } // End Sub Configure 
 
 

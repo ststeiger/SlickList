@@ -32,7 +32,7 @@
   ],
 
   "include": [
-    "**/*", "../wwwroot/dialogue.htm"
+    "**/*", "../wwwroot/dialogue.htm", "../Code/AshxMiddleware.cs"
   ]
 
 }
