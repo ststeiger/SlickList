@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+
+    <title>Dialogue</title>
+
+    <link rel="stylesheet" type="text/css" href="../w8/Layout.ashx?Single=COR_Resources:COR.Dialogue.css" />
+    <script type="text/javascript" src="../w8/Script.ashx?Single=COR_Resources:COR.Element.js"></script>
+    <script type="text/javascript" src="../w8/Script.ashx?Single=COR_Resources:COR.Dialogue.js"></script>
+
+    <script>
+        function Do()
+        {
+            _.Dialogue.Init({
+                Header: document.querySelector('#taHeader').value,
+                Body: document.querySelector('#taBody').value,
+                Width: document.querySelector('#inWidth').value,
+                Height: document.querySelector('#inHeight').value,
+                Share: !document.querySelector('#cbBlock').checked,
+
+                Functions: [
+                    {
+                        Name: 'Irgendwas', onclick: function (o)
+                        {
+                            alert('Irgendwas, console.log()');
+                            console.log(this, o)
+                        }
+                    },
+                    { Name: 'Schliessen', className: 'Gray', Styles: { float: 'right', width: '48%' } }
+                ]
+            })
+        }
+    </script>
+
+    <style>
+
+        label {
+            display: inline-block;
+            width: 3cm;
+            text-align: right;
+            padding: 3mm;
+        }
+
+        textarea {
+            width: 4cm;
+        }
+
+        input {
+            width: 4cm;
+        }
+
+    </style>
+
+</head>
+<body>
+    <label for='taHeader'>Header:</label><textarea id='taHeader' title='Title'>Header</textarea><br />
+    <label for='taBody'>Body:</label><textarea id='taBody' title='Body'>Body</textarea><br />
+    <label for='inWidth'>Width:</label><input id='inWidth' type='text' value='95%' title='Width' /><br />
+    <label for='inHeight'>Height:</label><input id='inHeight' type='text' value='' title='Height' /><br />
+    <label for='inBlock'>Blockieren:</label><input id='cbBlock' type='checkbox' checked='checked' title='Block' /><br />
+
+    <ins onclick='Do()'>Öffnen</ins>
+</body>
+</html>

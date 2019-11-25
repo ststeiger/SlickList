@@ -10,21 +10,21 @@
 		Boolean: function(value, length){
 			return '@Value. (@Length.)'
 				.replace('@Value.', value)
-				.replace('@Length.', length)
+                .replace('@Length.', length);
 		},
 
 		/**************************************************************************************************
 		* Gibt einen Float auf Zwei-Nachkommastellen abgeschnitten zurück
 		**************************************************************************************************/
 		Float: function(value, length){
-			return (value || 0.00).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1'")
+            return (value || 0.00).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1'");
 		},
 
 		/**************************************************************************************************
 		* Gibt eine ganze Zahl zurück
 		**************************************************************************************************/
 		Integer: function(value, length){
-			return (value || 0).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1'")
+            return (value || 0).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1'");
 		},
 
 		/**************************************************************************************************
@@ -32,7 +32,7 @@
 		**************************************************************************************************/
 		Meters: function(value, length){
 			//return (v || 0.00).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1'") + 'm'
-			return (value || 0.00).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1'")
+            return (value || 0.00).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1'");
 		},
 
 		/**************************************************************************************************
@@ -40,7 +40,7 @@
 		**************************************************************************************************/
 		Squaremeters: function(value, length){
 			//return (v || 0.00).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1'") + 'm2'
-			return (value || 0.00).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1'")
+            return (value || 0.00).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1'");
 		}
-	}
+    };
 }(window._ = window._ || {}));

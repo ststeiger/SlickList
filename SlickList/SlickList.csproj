@@ -13,6 +13,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="test\0\calendar.sql" />
+    <None Remove="test\0\slicklist.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="test\0\calendar.sql" />
+    <EmbeddedResource Include="test\0\slicklist.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Win32.Registry" Version="4.6.0" />
