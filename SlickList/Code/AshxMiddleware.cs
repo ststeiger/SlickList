@@ -1,4 +1,5 @@
 ﻿
+using System.Reflection;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Builder;
 
@@ -88,7 +89,8 @@ namespace SlickList
         {
             get
             {
-                return System.Reflection.Assembly.ReflectionOnlyLoad(this.assemblyText);
+                return System.Reflection.Assembly.Load(this.assemblyText);
+                // return System.Reflection.Assembly.ReflectionOnlyLoad(this.assemblyText);
             }
         }
 
@@ -96,6 +98,8 @@ namespace SlickList
         {
             get
             {
+                return typeof(Data).Assembly.FullName;
+                
                 string tV = this.m_context.Request.Params("Assembly");
                 if (this.SQLString.StartsWith("VWS2"))
                     tV = "Portal_Visualiser";
@@ -149,7 +153,7 @@ namespace SlickList
                     if (System.Array.IndexOf(tPrivate, key) < 0)
                     {
                         if (!tList.ContainsKey(key))
-                            tList.Add(key, this.m_context.Request.Query[key]);
+                            tList.Add(key, this.m_context.Request.Query[key].ToString());
                     }
                 }
 
@@ -166,7 +170,7 @@ namespace SlickList
                     }
 
                 }
-
+                
                 // For Each tProperty As PropertyInfo In GetType(Data).GetProperties((BindingFlags.Public Or BindingFlags.Instance))
                 // If tList.ContainsKey(tProperty.Name) Then
                 // tList(tProperty.Name) = tProperty.GetValue(Me, New Object() {tList(tProperty.Name)})
@@ -179,6 +183,8 @@ namespace SlickList
                         tParam.ParameterName = "@" + tKey;
                         tParam.Value = tList[tKey];
                     }
+                    
+                    tSQL.Add(tParam);
                 }
 
                 return tSQL;
@@ -256,6 +262,8 @@ namespace SlickList
 
                             _COR.SQL.AddParameter(tCommand, tParameter.ParameterName, tParameter.Value, System.Data.ParameterDirection.Input, tParameter.DbType);
                         }
+                        
+                        
                     }
 
                     if (tContentType.Equals("application/json", System.StringComparison.OrdinalIgnoreCase))
